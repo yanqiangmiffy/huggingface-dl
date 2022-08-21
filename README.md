@@ -1,7 +1,15 @@
 # huggingface-dl
+
 Command-line program to download models from huggingface.co
 
-## Example
+## Install
+
+```text
+pip install git+https://github.com/yanqiangmiffy/Nezha-Pytorch.git
+```
+
+## Usage example
+
 ```text
 (base) huggingface_dl --model_name bert-base-uncased --save_path bert-base-uncased  
 Downloading tokenizer_config.json: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 28.0/28.0 [00:00<00:00, 21.8kB/s]
@@ -15,4 +23,5 @@ Some weights of the model checkpoint at bert-base-uncased were not used when ini
 Download successful! (size: None B)
 
 ```
+
 
