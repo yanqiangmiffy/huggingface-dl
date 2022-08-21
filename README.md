@@ -5,7 +5,7 @@ Command-line program to download models from huggingface.co
 ## Install
 
 ```text
-pip install git+https://github.com/yanqiangmiffy/Nezha-Pytorch.git
+pip install git+https://github.com/yanqiangmiffy/huggingface-dl.git
 ```
 
 ## Usage example
