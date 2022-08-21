@@ -2,3 +2,4 @@
 /dist/
 /huggingface_dl.egg-info/
 bert-base-uncased
+.idea
