@@ -1,5 +1,5 @@
 import os
-
+import shutil
 from transformers import AutoTokenizer, AutoModel
 
 
@@ -23,4 +23,4 @@ def download(args):
         os.makedirs(args.save_path)
     tokenizer.save_pretrained(args.save_path)
     model.save_pretrained(args.save_path)
-    os.rmdir('.cached')
+    shutil.rmtree('.cached', ignore_errors=True)
