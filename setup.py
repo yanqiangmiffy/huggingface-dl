@@ -20,7 +20,12 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=["requests","transformers>=4.13.0", "click>=0.4.4"],
+    install_requires=[
+        "requests","transformers>=4.13.0",
+        "click>=0.4.4",
+        "huggingface-hub>=0.8.1",
+        "packaging>=21.3"
+    ],
     packages=setuptools.find_packages(),
     python_requires=">=3.6",
     entry_points={

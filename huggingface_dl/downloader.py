@@ -1,17 +1,26 @@
 import os
+
 from transformers import AutoTokenizer, AutoModel
 
 
-def download(model_name, save_path):
+def download(args):
     """
     huggingface-dl -m bert-base-uncased -s bert-base-uncased
-    :param model_name:
-    :param save_path:
+    :param args:
     :return:
     """
-    if os.path.exists(save_path):
-        os.makedirs(save_path)
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModel.from_pretrained(model_name)
-    tokenizer.save_pretrained(save_path)
-    model.save_pretrained(save_path)
+
+    if args.proxy:
+        tokenizer = AutoTokenizer.from_pretrained(args.model_name, proxies={"http": args.proxy, "https": args.proxy},
+                                                  cache_dir='.cached')
+        model = AutoModel.from_pretrained(args.model_name, proxies={"http": args.proxy, "https": args.proxy},
+                                          cache_dir='.cached')
+    else:
+        tokenizer = AutoTokenizer.from_pretrained(args.model_name, cache_dir='.cached')
+        model = AutoModel.from_pretrained(args.model_name, cache_dir='.cached')
+
+    if not os.path.exists(args.save_path):
+        os.makedirs(args.save_path)
+    tokenizer.save_pretrained(args.save_path)
+    model.save_pretrained(args.save_path)
+    os.rmdir('.cached')
